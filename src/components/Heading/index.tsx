@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Heading = ({captions}) => {
+const Heading = ({caption}) => {
   return (
     <View>
-      <Text style={style.heading1}>{captions}</Text>
+      <Text style={style.heading1}>{caption}</Text>
     </View>
   );
 };

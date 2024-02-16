@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "emulator" : "emulator -avd Pixel_7_Pro_API_33"
+    "emulator": "emulator -avd Pixel_7_Pro_API_33"
   },
   "dependencies": {
     "react": "18.2.0",
