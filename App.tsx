@@ -1,59 +1,105 @@
-import {View, Image, ScrollView, StyleSheet} from 'react-native';
 import React from 'react';
-import Title from './src/components/Title';
-import Input from './src/components/Input';
-import Heading from './src/components/Heading';
+import {ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 
 const App = () => {
+  const onPress = () => setCount(prevCount => prevCount + 1);
   return (
-    <View style={style.backgroundBody}>
-      <Title texts="Assigment#2" />
-      <Title texts="Basic Component in RN" />
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.th}>Assignment#3</Text>
+        <Text style={styles.th}>Welcome</Text>
+      </View>
       <ScrollView>
-        <Input placeholder={'Search here'} />
-        <Input placeholder="Enter your Name" />
-        <Input placeholder="Enter your Email" />
-        <Title texts="Random box" />
-        <View style={style.boxset}>
-          <View style={style.box} />
+        <View style={styles.u}>
+          <Text style={styles.username}> Username </Text>
         </View>
-        <Title texts="Pictures of Nature" />
-        <Heading caption=" 1. Sunrise" />
-        <Image source={require('./asset/sunrise.jpg')} style={style.image} />
-        <Heading caption=" 2. Random Art" />
-        <Image source={require('./asset/art.png')} style={style.image} />
-        <Heading caption=" 3. Random Art(2)" />
-        <Image source={require('./asset/nature.jpg')} style={style.image} />
-        {/* <Image source={}></Image> */}
-        {/* <Image
-        source={{uri:'https://reactnative.dev/'}}
-        style={{width: 200, height: 200}}
-      /> */}
+        <TextInput
+          placeholder='Username'
+          style={styles.input}
+        />
+        <View style={styles.p}>
+          <Text style={styles.pass}> Password </Text>
+        </View>
+        <TextInput
+          placeholder='Password'
+          style={styles.input2}
+        />
+        <TouchableOpacity style={styles.button} onPress={onPress}>
+          <Text style={styles.s}>Sign In</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
 };
 
-const style = StyleSheet.create({
-  backgroundBody: {
-    flexGrow: 1,
-    backgroundColor: 'orange',
-    padding: 20,
-  },
-  boxset: {
-    flexDirection: 'row',
-    marginTop: 20,
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
     justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  header:{
+    marginBottom:50,
+    marginTop:25,
+    marginLeft:10,
+  },
+  th:{
+    fontSize:35,
+    fontWeight:'bold',
+    color:'black'
+  },
+  u:{
+    marginBottom:6,
+  },
+  username:{
+    fontWeight:'bold',
+    marginLeft:4,
+    fontSize:20,
+    color:'grey',
+  },
+  p:{
+    marginBottom:6,
+  },
+  pass:{
+    fontWeight:'bold',
+    fontSize:20,
+    marginLeft:4,
+    color:'grey',
+  },
+  input:{
+    height: 50,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius:10,
+    marginBottom: 16,
+    marginLeft:9,
+    paddingLeft: 10,
+    width: '95%', 
+    
+  },
+  input2:{
+    height: 50,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius:10,
+    marginBottom: 16,
+    marginLeft:9,
+    paddingLeft: 10,
+    width: '95%',
+  },
+  button: {
     alignItems: 'center',
+    backgroundColor: 'red',
+    padding: 10,
+    marginTop:30,
+    width:'95%',
+    height: 50,
+    borderRadius:15,
+    marginLeft:9,
   },
-  box: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'blue',
-  },
-  image: {
-    width: 450,
-    height: 450,
+  s:{
+    paddingTop:4,
+    color:'white',
   },
 });
 
